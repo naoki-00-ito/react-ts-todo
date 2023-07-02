@@ -48,7 +48,12 @@ function App() {
       }
       return todo;
     });
-    
+
+    setTodos(newTodos);
+  }
+
+  const handleDelete = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
   }
 
@@ -67,6 +72,7 @@ function App() {
           <li key={todo.id} className='todo-list__item'>
             <input type="text" onChange={(e) => handleEdit(todo.id, e.target.value)} value={todo.inputValue} disabled={todo.checked} />
             <input type="checkbox" onChange={(e) => handleChecked(todo.id, todo.checked)} />
+            <button onClick={() => handleDelete(todo.id)}>削除</button>
           </li>
         ))}
       </ul>

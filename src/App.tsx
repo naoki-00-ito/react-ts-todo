@@ -39,6 +39,14 @@ function App() {
 
         <input type="submit" value="作成" className='form__submit' />
       </form>
+
+      <ul className='todo-list'>
+        {todos.map((todo) => (
+          <li key={todo.id} className='todo-list__item'>
+            {todo.inputValue}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
